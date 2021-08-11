@@ -227,7 +227,6 @@
 <p>先从具体数学开始吧，由于博主只是个大一的本科生，数学基础并不扎实，欢迎指正错误。</p>
 <p>本篇主要涉及具体数学第一章的内容，以及我对其中一些内容的拓展。</p>
 <span id="more"></span>
-
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>[TOC]</p>
 <h2 id="汉诺塔问题"><a href="#汉诺塔问题" class="headerlink" title="汉诺塔问题"></a>汉诺塔问题</h2><p>开篇引入的就是很多人都熟知的问题，关于问题的介绍就不再赘述了。</p>
 <p>设三根柱子分别为$A,B,C$，目标是将$n$个圆盘从柱子$A$移动到柱子$C$上，并记有$n$个圆盘的汉诺塔问题的最优解为$T_n$​，先考虑构造一个可行的方案：</p>
@@ -242,24 +241,42 @@
 <p>从而，平面上的点数$V=\frac{n(n-1)}{2}+2n=\frac{n^2+3n}{2}$​​。原先的每条直线被$n+1$个点分割为$n$条边，则边数$E=n*n+2n=n^2+2n$。</p>
 <p>又由凸多边形外也是一个区域，代入平面图欧拉公式得$V-E+L_n+1=2$，即$L_n=\frac{n(n+1)}{2}$。</p>
 <p>下图是$n=3$​时的一个例子，其中绿色的点和红色的边分别为新形成的点和新形成的边。</p>
-<img src="/.com//JTSX1Fig1.png" style="zoom:67%;">
-
-<h2 id="约瑟夫问题"><a href="#约瑟夫问题" class="headerlink" title="约瑟夫问题"></a>约瑟夫问题</h2><p>这个问题引申出来的内容就多一些了，并且我用线性空间对递推式的封闭形式进行了讨论。先规定$n$​​为人数，数到第$m$​​个人被选中，$J(n)$​为幸存者的编号，$%$为取模运算。</p>
+<p><img src="/.com//JTSX1Fig1.png" style="zoom:67%;"></p>
+<h2 id="约瑟夫问题"><a href="#约瑟夫问题" class="headerlink" title="约瑟夫问题"></a>约瑟夫问题</h2><p>这个问题引申出来的内容就多一些了，并且我用线性空间对递推式的封闭形式进行了讨论。先规定$n$​​为人数，数到第$m$​​个人被选中，$J(n)$​为幸存者的编号，$\%$为取模运算。</p>
 <h3 id="m-2-的情形"><a href="#m-2-的情形" class="headerlink" title="$m=2$的情形"></a>$m=2$的情形</h3><p>书中先讨论的是$m=2$的情形，求解的方法是先选到只剩下$\left\lfloor \frac{n}{2}\right\rfloor$个人，将问题转换成$\left\lfloor \frac{n}{2}\right\rfloor$个人的情形。</p>
 <p>由此受到启发，可以抽象出一些求递归式的问题的解法：<strong>先对问题进行有限步的处理，构造一个到$n$​更小的情形的单射，从而得到递归式。</strong></p>
-<p>例如在该问题中，先进行报数，剩下$\left\lfloor  \frac{n}{2}\right\rfloor$个人以<br>$$<br>f(x) =\begin{cases}\frac{x-1}{2},&amp;\text{$n$ is odd}\\frac{x+1}{2},&amp;\text{$n$ is even}\end{cases}<br>$$<br>的方式进行重新编号，很显然这是一个单射，因此有逆映射<br>$$<br>f^{-1}(x) =\begin{cases}2x+1,&amp;\text{$n$ is odd}\2x-1,&amp;\text{$n$ is even}\end{cases}<br>$$<br>此时即可转换为人数为$\left\lfloor \frac{n}{2}\right\rfloor$​时的情形，幸存者编号为$x=J(\left\lfloor \frac{n}{2}\right\rfloor)$​​​。则人数为$n$时$J(n)=f^{-1}(x)$​，整理一下即为书上的形式。</p>
+<p>例如在该问题中，先进行报数，剩下$\left\lfloor  \frac{n}{2}\right\rfloor$个人以</p>
+<script type="math/tex; mode=display">
+f(x) =\begin{cases}\frac{x-1}{2},&\text{$n$ is odd}\\\frac{x+1}{2},&\text{$n$ is even}\end{cases}</script><p>的方式进行重新编号，很显然这是一个单射，因此有逆映射</p>
+<script type="math/tex; mode=display">
+f^{-1}(x) =\begin{cases}2x+1,&\text{$n$ is odd}\\2x-1,&\text{$n$ is even}\end{cases}</script><p>此时即可转换为人数为$\left\lfloor \frac{n}{2}\right\rfloor$​时的情形，幸存者编号为$x=J(\left\lfloor \frac{n}{2}\right\rfloor)$​​​。则人数为$n$时$J(n)=f^{-1}(x)$​，整理一下即为书上的形式。</p>
 <p>事实上，这个思路运用的非常广泛，并且<strong>通常来说最开始有限步的处理会影响到用递推式求解的复杂度</strong>。例如考虑$m$​为任意正整数的情况：</p>
-<p>为方便讨论，将每个人的标号记成$0,1,2,…,n-1$​​​​​，先进行一轮报数，编号为$k=(m-1)%n$​​​​​的人被选中。构造一个映射$f$​​​​​将编号序列$k,k+1,…,n-1,0,1,2,…,k-2$​​​​​​映射为$0,1,2,…,n-2$​​​​​，转换为$n-1$的情形。很显然$f$是一个双射，并且有$f^{-1}(x)=(x+k)%n$​​​​​​​​​，从而有<br>$$<br>J(n)=(J(n-1)+(m-1)%n)%n\tag{1}\label{Equ:1}<br>$$<br>利用$\eqref{Equ:1}$​计算$J(n)$​的时间复杂度为$O(N)$​，而利用书中的公式计算的时间复杂度为$O(\log N)$​​，在最开始有限步的处理确实影响到了利用递推式求解的复杂度。</p>
+<p>为方便讨论，将每个人的标号记成$0,1,2,…,n-1$​​​​​，先进行一轮报数，编号为$k=(m-1)\%n$​​​​​的人被选中。构造一个映射$f$​​​​​将编号序列$k,k+1,…,n-1,0,1,2,…,k-2$​​​​​​映射为$0,1,2,…,n-2$​​​​​，转换为$n-1$的情形。很显然$f$是一个双射，并且有$f^{-1}(x)=(x+k)\%n$​​​​​​​​​，从而有</p>
+<script type="math/tex; mode=display">
+J(n)=(J(n-1)+(m-1)\%n)\%n\tag{1}\label{Equ:1}</script><p>利用$\eqref{Equ:1}$​计算$J(n)$​的时间复杂度为$O(N)$​，而利用书中的公式计算的时间复杂度为$O(\log N)$​​，在最开始有限步的处理确实影响到了利用递推式求解的复杂度。</p>
 <h3 id="利用线性空间求递推式的封闭形式"><a href="#利用线性空间求递推式的封闭形式" class="headerlink" title="利用线性空间求递推式的封闭形式"></a>利用线性空间求递推式的封闭形式</h3><p> 书中给出$m=2$时的封闭形式和二进制下的形式，这里不再赘述。</p>
-<p>而书中提到了利用独立的特解求形如<br>$$<br>f(j)=a_j,1\leq j&lt;d\<br>f(dn+j)=cf(n)+b_j,0\leq j&lt;d,n\geq1\tag{2}\label{Equ:2}<br>$$<br>的递归式的封闭形式的方法，称为<strong>成套方法（repertoire method）</strong>，并且提到有多少个独立的参数就需要多少个独立的特解，却并没有剖析其背后的原因。事实上，可以从线性空间的角度来看待这个问题。</p>
+<p>而书中提到了利用独立的特解求形如</p>
+<script type="math/tex; mode=display">
+f(j)=a_j,1\leq j<d\\
+f(dn+j)=cf(n)+b_j,0\leq j<d,n\geq1\tag{2}\label{Equ:2}</script><p>的递归式的封闭形式的方法，称为<strong>成套方法（repertoire method）</strong>，并且提到有多少个独立的参数就需要多少个独立的特解，却并没有剖析其背后的原因。事实上，可以从线性空间的角度来看待这个问题。</p>
 <p>给定$c,d$​，所有以$\eqref{Equ:2}$​形式定义的函数 $f$​构成的集合$V$不是空集。易验证$V$在函数的加法和函数与实数域$\mathbb{R}$的纯量乘法下构成域$\mathbb{R}$上的线性空间。</p>
-<p>考虑实数域上$2d+1$​维向量构成的线性空间$W$，构造一个映射<br>$$<br>\sigma:W\to V\<br>(a_1,…,a_{j-1},b_0,…,b_{j-1})\mapsto f<br>$$<br>其中$f$按$\eqref{Equ:2}$定义，易验证$\sigma$是一个线性映射。</p>
+<p>考虑实数域上$2d+1$​维向量构成的线性空间$W$，构造一个映射</p>
+<script type="math/tex; mode=display">
+\sigma:W\to V\\
+(a_1,...,a_{j-1},b_0,...,b_{j-1})\mapsto f</script><p>其中$f$按$\eqref{Equ:2}$定义，易验证$\sigma$是一个线性映射。</p>
 <p>取$W$​中的一组基$\alpha_1=(1,0,…,0),\alpha_2=(0,1,…,0),…,\alpha_{2d+1}=(0,0,…,1)$​，经$\sigma$​映射成$f_1,…,f_{2d+1}$​。</p>
 <p>设$g(x)=\sum_{i=1}^{2d+1}k_if_i$​为零函数，即$g(x)=0,\forall x\in\mathbb{N^+}$​。</p>
-<p>注意到<br>$$<br>f_i(j)=\begin{cases}1,i=j\0,i\neq j\end{cases}\textbf{ $,\forall i,j\in{1,2,…,2d+1}$}<br>$$<br>则$\forall i\in{1,2,…,2d+1},g(i)=k_if_i(i)=k_i=0$​​，即$f_1,…,f_{2d+1}$线性无关。</p>
+<p>注意到</p>
+<script type="math/tex; mode=display">
+f_i(j)=\begin{cases}1,i=j\\0,i\neq j\end{cases}\textbf{ $,\forall i,j\in\{1,2,...,2d+1\}$}</script><p>则$\forall i\in\{1,2,…,2d+1\},g(i)=k_if_i(i)=k_i=0$​​，即$f_1,…,f_{2d+1}$线性无关。</p>
 <p>又对任意按$\eqref{Equ:2}$定义的$f$，有$f=a_1f_1+…+a_{j-1}f_{j-1}+b_0f_j+…+b_{j-1}f_{2d+1}$​​。</p>
 <p>由此，$f_1,…,f_{2d+1}$​为$V$​的一组基，则$\sigma$​是一个双射，即$\sigma$​​是一个可逆线性映射。</p>
-<p>则<br>$$<br>\text{ }f=\sigma^{-1}((a_1,…,a_{j-1},b_0,…,b_{j-1}))\<br>=\sigma^{-1}(\sum_{i=1}^{j-1}a_i\alpha_i+\sum_{i=0}^{j-1}b_i\alpha_{i+j})\<br>\text{ }=\sum_{i=1}^{j-1}a_i\sigma^{-1}(\alpha_i)+\sum_{i=0}^{j-1}b_i\sigma^{-1}(\alpha_{i+j})\<br>=\sum_{i=1}^{j-1}a_if_i+\sum_{i=0}^{j-1}b_if_{i+j}<br>$$<br>因此，成套方法的本质即取$W$的一组基，解出$V$的一组基$f_1,…,f_{2d+1}$，从而得到$f$的封闭形式。</p>
+<p>则</p>
+<script type="math/tex; mode=display">
+\text{ }f=\sigma^{-1}((a_1,...,a_{j-1},b_0,...,b_{j-1}))\\
+=\sigma^{-1}(\sum_{i=1}^{j-1}a_i\alpha_i+\sum_{i=0}^{j-1}b_i\alpha_{i+j})\\
+\text{ }=\sum_{i=1}^{j-1}a_i\sigma^{-1}(\alpha_i)+\sum_{i=0}^{j-1}b_i\sigma^{-1}(\alpha_{i+j})\\
+=\sum_{i=1}^{j-1}a_if_i+\sum_{i=0}^{j-1}b_if_{i+j}</script><p>因此，成套方法的本质即取$W$的一组基，解出$V$的一组基$f_1,…,f_{2d+1}$，从而得到$f$的封闭形式。</p>
 
     </div>
 
@@ -514,6 +531,8 @@ $(document).ready(function() {
 
 
 
+
+  
 
   
 
