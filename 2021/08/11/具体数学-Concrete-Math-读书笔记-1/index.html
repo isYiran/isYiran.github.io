@@ -20,30 +20,36 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="记录杂想">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yiran&#39;s blog">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="暑假看了一些书，因此随手记录一下所学所想。 先从具体数学开始吧，由于博主只是个大一的本科生，数学基础并不扎实，欢迎指正错误。 本篇主要涉及具体数学第一章的内容，以及我对其中一些内容的拓展。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="具体数学(Concrete-Math)读书笔记(1)">
+<meta property="og:url" content="http://example.com/2021/08/11/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6-Concrete-Math-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-1/index.html">
 <meta property="og:site_name" content="Yiran&#39;s blog">
-<meta property="og:description" content="记录杂想">
+<meta property="og:description" content="暑假看了一些书，因此随手记录一下所学所想。 先从具体数学开始吧，由于博主只是个大一的本科生，数学基础并不扎实，欢迎指正错误。 本篇主要涉及具体数学第一章的内容，以及我对其中一些内容的拓展。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="e:/Blog/source/img/JTSX1Fig1.png">
+<meta property="article:published_time" content="2021-08-11T14:24:43.000Z">
+<meta property="article:modified_time" content="2021-08-11T14:32:35.287Z">
 <meta property="article:author" content="Yiran">
+<meta property="article:tag" content="具体数学">
+<meta property="article:tag" content="读书笔记">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="e:/Blog/source/img/JTSX1Fig1.png">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2021/08/11/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6-Concrete-Math-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-1/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Yiran's blog</title>
+  <title>具体数学(Concrete-Math)读书笔记(1) | Yiran's blog</title>
   
 
 
@@ -156,9 +162,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -174,10 +181,9 @@
       <meta itemprop="name" content="Yiran's blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/11/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6-Concrete-Math-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-1/" class="post-title-link" itemprop="url">具体数学(Concrete-Math)读书笔记(1)</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          具体数学(Concrete-Math)读书笔记(1)
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -200,6 +206,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -210,32 +223,82 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>暑假看了一些书，因此随手记录一下所学所想。</p>
+        <p>暑假看了一些书，因此随手记录一下所学所想。</p>
 <p>先从具体数学开始吧，由于博主只是个大一的本科生，数学基础并不扎实，欢迎指正错误。</p>
 <p>本篇主要涉及具体数学第一章的内容，以及我对其中一些内容的拓展。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/11/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6-Concrete-Math-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+<span id="more"></span>
+
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>[TOC]</p>
+<h2 id="汉诺塔问题"><a href="#汉诺塔问题" class="headerlink" title="汉诺塔问题"></a>汉诺塔问题</h2><p>开篇引入的就是很多人都熟知的问题，关于问题的介绍就不再赘述了。</p>
+<p>设三根柱子分别为$A,B,C$，目标是将$n$个圆盘从柱子$A$移动到柱子$C$上，并记有$n$个圆盘的汉诺塔问题的最优解为$T_n$​，先考虑构造一个可行的方案：</p>
+<p>将前$n-1$个小的圆盘移动至$B$，再将最大的圆盘移动至$C$，最后将$n-1$个圆盘移动至$C$。</p>
+<p>这是一个可行的方案，因此对最优解$T_n$，有$T_n\leq 2T_{n-1}+1,\forall n\in\mathbb{N^+}$。</p>
+<p>书中随后证明了所有可行解的次数都大于等于$2T_{n-1}+1$，因此可以断言这是一个最优解​。</p>
+<p>由此受到启发，可以抽象出一个证明某个解是最优解的思路：<strong>先证明该解是可行解，再证明所有的可行解都不会比该解更优。</strong></p>
+<h2 id="直线分割平面问题"><a href="#直线分割平面问题" class="headerlink" title="直线分割平面问题"></a>直线分割平面问题</h2><p>这个问题是高中数学的经典问题，但还可以从不同角度去探讨这个问题的解。</p>
+<p>记最优解为$L_n$，先引入平面图欧拉公式：$V-E+F=2$，其中$V,E,F$分别为顶点数，边数，区域数。注意欧拉公式中的边数不是直线数。</p>
+<p>第$n$​条直线可以至多形成$n$​个交点，考虑在平面上构造一个充分大的圆，使得所有的交点都在圆内，并与每条直线都有两个交点，共形成$2n$个交点。</p>
+<p>将新形成的交点中在圆上相邻的点对用线段连接，形成$2n$条边，得到一个凸多边形。再删去圆和所有直线在凸多边形外的部分，此时这个凸多边形内部的区域数即$L_n$。</p>
+<p>从而，平面上的点数$V=\frac{n(n-1)}{2}+2n=\frac{n^2+3n}{2}$​​。原先的每条直线被$n+1$个点分割为$n$条边，则边数$E=n*n+2n=n^2+2n$。</p>
+<p>又由凸多边形外也是一个区域，代入平面图欧拉公式得$V-E+L_n+1=2$，即$L_n=\frac{n(n+1)}{2}$。</p>
+<p>下图是$n=3$​时的一个例子，其中绿色的点和红色的边分别为新形成的点和新形成的边。</p>
+<img src="E:\Blog\source\img\JTSX1Fig1.png" alt="JTSX1Fig1" style="zoom:75%;" />
+
+<h2 id="约瑟夫问题"><a href="#约瑟夫问题" class="headerlink" title="约瑟夫问题"></a>约瑟夫问题</h2><p>这个问题引申出来的内容就多一些了，并且我用线性空间对递推式的封闭形式进行了讨论。先规定$n$​​为人数，数到第$m$​​个人被选中，$J(n)$​为幸存者的编号，$%$为取模运算。</p>
+<h3 id="m-2-的情形"><a href="#m-2-的情形" class="headerlink" title="$m=2$的情形"></a>$m=2$的情形</h3><p>书中先讨论的是$m=2$的情形，求解的方法是先选到只剩下$\left\lfloor \frac{n}{2}\right\rfloor$个人，将问题转换成$\left\lfloor \frac{n}{2}\right\rfloor$个人的情形。</p>
+<p>由此受到启发，可以抽象出一些求递归式的问题的解法：<strong>先对问题进行有限步的处理，构造一个到$n$​更小的情形的单射，从而得到递归式。</strong></p>
+<p>例如在该问题中，先进行报数，剩下$\left\lfloor  \frac{n}{2}\right\rfloor$个人以<br>$$<br>f(x) =\begin{cases}\frac{x-1}{2},&amp;\text{$n$ is odd}\\frac{x+1}{2},&amp;\text{$n$ is even}\end{cases}<br>$$<br>的方式进行重新编号，很显然这是一个单射，因此有逆映射<br>$$<br>f^{-1}(x) =\begin{cases}2x+1,&amp;\text{$n$ is odd}\2x-1,&amp;\text{$n$ is even}\end{cases}<br>$$<br>此时即可转换为人数为$\left\lfloor \frac{n}{2}\right\rfloor$​时的情形，幸存者编号为$x=J(\left\lfloor \frac{n}{2}\right\rfloor)$​​​。则人数为$n$时$J(n)=f^{-1}(x)$​，整理一下即为书上的形式。</p>
+<p>事实上，这个思路运用的非常广泛，并且<strong>通常来说最开始有限步的处理会影响到用递推式求解的复杂度</strong>。例如考虑$m$​为任意正整数的情况：</p>
+<p>为方便讨论，将每个人的标号记成$0,1,2,…,n-1$​​​​​，先进行一轮报数，编号为$k=(m-1)%n$​​​​​的人被选中。构造一个映射$f$​​​​​将编号序列$k,k+1,…,n-1,0,1,2,…,k-2$​​​​​​映射为$0,1,2,…,n-2$​​​​​，转换为$n-1$的情形。很显然$f$是一个双射，并且有$f^{-1}(x)=(x+k)%n$​​​​​​​​​，从而有<br>$$<br>J(n)=(J(n-1)+(m-1)%n)%n\tag{1}\label{Equ:1}<br>$$<br>利用$\eqref{Equ:1}$​计算$J(n)$​的时间复杂度为$O(N)$​，而利用书中的公式计算的时间复杂度为$O(\log N)$​​，在最开始有限步的处理确实影响到了利用递推式求解的复杂度。</p>
+<h3 id="利用线性空间求递推式的封闭形式"><a href="#利用线性空间求递推式的封闭形式" class="headerlink" title="利用线性空间求递推式的封闭形式"></a>利用线性空间求递推式的封闭形式</h3><p> 书中给出$m=2$时的封闭形式和二进制下的形式，这里不再赘述。</p>
+<p>而书中提到了利用独立的特解求形如<br>$$<br>f(j)=a_j,1\leq j&lt;d\<br>f(dn+j)=cf(n)+b_j,0\leq j&lt;d,n\geq1\tag{2}\label{Equ:2}<br>$$<br>的递归式的封闭形式的方法，称为<strong>成套方法（repertoire method）</strong>，并且提到有多少个独立的参数就需要多少个独立的特解，却并没有剖析其背后的原因。事实上，可以从线性空间的角度来看待这个问题。</p>
+<p>给定$c,d$​，所有以$\eqref{Equ:2}$​形式定义的函数 $f$​构成的集合$V$不是空集。易验证$V$在函数的加法和函数与实数域$\mathbb{R}$的纯量乘法下构成域$\mathbb{R}$上的线性空间。</p>
+<p>考虑实数域上$2d+1$​维向量构成的线性空间$W$，构造一个映射<br>$$<br>\sigma:W\to V\<br>(a_1,…,a_{j-1},b_0,…,b_{j-1})\mapsto f<br>$$<br>其中$f$按$\eqref{Equ:2}$定义，易验证$\sigma$是一个线性映射。</p>
+<p>取$W$​中的一组基$\alpha_1=(1,0,…,0),\alpha_2=(0,1,…,0),…,\alpha_{2d+1}=(0,0,…,1)$​，经$\sigma$​映射成$f_1,…,f_{2d+1}$​。</p>
+<p>设$g(x)=\sum_{i=1}^{2d+1}k_if_i$​为零函数，即$g(x)=0,\forall x\in\mathbb{N^+}$​。</p>
+<p>注意到<br>$$<br>f_i(j)=\begin{cases}1,i=j\0,i\neq j\end{cases}\textbf{ $,\forall i,j\in{1,2,…,2d+1}$}<br>$$<br>则$\forall i\in{1,2,…,2d+1},g(i)=k_if_i(i)=k_i=0$​​，即$f_1,…,f_{2d+1}$线性无关。</p>
+<p>又对任意按$\eqref{Equ:2}$定义的$f$，有$f=a_1f_1+…+a_{j-1}f_{j-1}+b_0f_j+…+b_{j-1}f_{2d+1}$​​。</p>
+<p>由此，$f_1,…,f_{2d+1}$​为$V$​的一组基，则$\sigma$​是一个双射，即$\sigma$​​是一个可逆线性映射。</p>
+<p>则<br>$$<br>\text{ }f=\sigma^{-1}((a_1,…,a_{j-1},b_0,…,b_{j-1}))\<br>=\sigma^{-1}(\sum_{i=1}^{j-1}a_i\alpha_i+\sum_{i=0}^{j-1}b_i\alpha_{i+j})\<br>\text{ }=\sum_{i=1}^{j-1}a_i\sigma^{-1}(\alpha_i)+\sum_{i=0}^{j-1}b_i\sigma^{-1}(\alpha_{i+j})\<br>=\sum_{i=1}^{j-1}a_if_i+\sum_{i=0}^{j-1}b_if_{i+j}<br>$$<br>因此，成套方法的本质即取$W$的一组基，解出$V$的一组基$f_1,…,f_{2d+1}$，从而得到$f$的封闭形式。</p>
+
     </div>
 
     
     
     
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Yiran
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2021/08/11/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6-Concrete-Math-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-1/" title="具体数学(Concrete-Math)读书笔记(1)">http://example.com/2021/08/11/具体数学-Concrete-Math-读书笔记-1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6/" rel="tag"># 具体数学</a>
+              <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag"># 读书笔记</a>
+          </div>
+
+        
+
+
+        
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -288,6 +351,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">汉诺塔问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E7%BA%BF%E5%88%86%E5%89%B2%E5%B9%B3%E9%9D%A2%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">直线分割平面问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A6%E7%91%9F%E5%A4%AB%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">约瑟夫问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#m-2-%E7%9A%84%E6%83%85%E5%BD%A2"><span class="nav-number">4.1.</span> <span class="nav-text">$m&#x3D;2$的情形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4%E6%B1%82%E9%80%92%E6%8E%A8%E5%BC%8F%E7%9A%84%E5%B0%81%E9%97%AD%E5%BD%A2%E5%BC%8F"><span class="nav-number">4.2.</span> <span class="nav-text">利用线性空间求递推式的封闭形式</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
