@@ -20,21 +20,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="mathjax: true 暑假看了一些书，因此随手记录一下所学所想。 先从具体数学开始吧，由于博主只是个大一的本科生，数学基础并不扎实，欢迎指正错误。 本篇主要涉及具体数学第一章的内容，以及我对其中一些内容的拓展。">
+  <meta name="description" content="暑假看了一些书，因此随手记录一下所学所想。 先从具体数学开始吧，由于博主只是个大一的本科生，数学基础并不扎实，欢迎指正错误。 本篇主要涉及具体数学第一章的内容，以及我对其中一些内容的拓展。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="具体数学(Concrete-Math)读书笔记(1)">
 <meta property="og:url" content="http://example.com/2021/08/11/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6-Concrete-Math-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-1/index.html">
 <meta property="og:site_name" content="Yiran&#39;s blog">
-<meta property="og:description" content="mathjax: true 暑假看了一些书，因此随手记录一下所学所想。 先从具体数学开始吧，由于博主只是个大一的本科生，数学基础并不扎实，欢迎指正错误。 本篇主要涉及具体数学第一章的内容，以及我对其中一些内容的拓展。">
+<meta property="og:description" content="暑假看了一些书，因此随手记录一下所学所想。 先从具体数学开始吧，由于博主只是个大一的本科生，数学基础并不扎实，欢迎指正错误。 本篇主要涉及具体数学第一章的内容，以及我对其中一些内容的拓展。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/.com//JTSX1Fig1.png">
+<meta property="og:image" content="http://example.com/.com//Fig1.png">
 <meta property="article:published_time" content="2021-08-11T14:24:43.000Z">
-<meta property="article:modified_time" content="2021-08-11T14:56:45.837Z">
+<meta property="article:modified_time" content="2021-08-11T15:12:50.715Z">
 <meta property="article:author" content="Yiran">
 <meta property="article:tag" content="具体数学">
 <meta property="article:tag" content="读书笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/.com//JTSX1Fig1.png">
+<meta name="twitter:image" content="http://example.com/.com//Fig1.png">
 
 <link rel="canonical" href="http://example.com/2021/08/11/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6-Concrete-Math-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-1/">
 
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-08-11 22:24:43 / 修改时间：22:56:45" itemprop="dateCreated datePublished" datetime="2021-08-11T22:24:43+08:00">2021-08-11</time>
+              <time title="创建时间：2021-08-11 22:24:43 / 修改时间：23:12:50" itemprop="dateCreated datePublished" datetime="2021-08-11T22:24:43+08:00">2021-08-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -223,12 +223,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>mathjax: true</p>
-<p>暑假看了一些书，因此随手记录一下所学所想。</p>
+        <p>暑假看了一些书，因此随手记录一下所学所想。</p>
 <p>先从具体数学开始吧，由于博主只是个大一的本科生，数学基础并不扎实，欢迎指正错误。</p>
 <p>本篇主要涉及具体数学第一章的内容，以及我对其中一些内容的拓展。</p>
 <span id="more"></span>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>[TOC]</p>
 <h2 id="汉诺塔问题"><a href="#汉诺塔问题" class="headerlink" title="汉诺塔问题"></a>汉诺塔问题</h2><p>开篇引入的就是很多人都熟知的问题，关于问题的介绍就不再赘述了。</p>
 <p>设三根柱子分别为$A,B,C$，目标是将$n$个圆盘从柱子$A$移动到柱子$C$上，并记有$n$个圆盘的汉诺塔问题的最优解为$T_n$​，先考虑构造一个可行的方案：</p>
 <p>将前$n-1$个小的圆盘移动至$B$，再将最大的圆盘移动至$C$，最后将$n-1$个圆盘移动至$C$。</p>
@@ -242,7 +240,7 @@
 <p>从而，平面上的点数$V=\frac{n(n-1)}{2}+2n=\frac{n^2+3n}{2}$​​。原先的每条直线被$n+1$个点分割为$n$条边，则边数$E=n*n+2n=n^2+2n$。</p>
 <p>又由凸多边形外也是一个区域，代入平面图欧拉公式得$V-E+L_n+1=2$，即$L_n=\frac{n(n+1)}{2}$。</p>
 <p>下图是$n=3$​时的一个例子，其中绿色的点和红色的边分别为新形成的点和新形成的边。</p>
-<p><img src="/.com//JTSX1Fig1.png" style="zoom:67%;"></p>
+<p><img src="/.com//Fig1.png" alt="Figure 1" style="zoom:67%;"></p>
 <h2 id="约瑟夫问题"><a href="#约瑟夫问题" class="headerlink" title="约瑟夫问题"></a>约瑟夫问题</h2><p>这个问题引申出来的内容就多一些了，并且我用线性空间对递推式的封闭形式进行了讨论。先规定$n$​​为人数，数到第$m$​​个人被选中，$J(n)$​为幸存者的编号，$\%$为取模运算。</p>
 <h3 id="m-2-的情形"><a href="#m-2-的情形" class="headerlink" title="$m=2$的情形"></a>$m=2$的情形</h3><p>书中先讨论的是$m=2$的情形，求解的方法是先选到只剩下$\left\lfloor \frac{n}{2}\right\rfloor$个人，将问题转换成$\left\lfloor \frac{n}{2}\right\rfloor$个人的情形。</p>
 <p>由此受到启发，可以抽象出一些求递归式的问题的解法：<strong>先对问题进行有限步的处理，构造一个到$n$​更小的情形的单射，从而得到递归式。</strong></p>
@@ -369,7 +367,7 @@ f_i(j)=\begin{cases}1,i=j\\0,i\neq j\end{cases}\textbf{ $,\forall i,j\in\{1,2,..
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">汉诺塔问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E7%BA%BF%E5%88%86%E5%89%B2%E5%B9%B3%E9%9D%A2%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">直线分割平面问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A6%E7%91%9F%E5%A4%AB%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">约瑟夫问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#m-2-%E7%9A%84%E6%83%85%E5%BD%A2"><span class="nav-number">4.1.</span> <span class="nav-text">$m&#x3D;2$的情形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4%E6%B1%82%E9%80%92%E6%8E%A8%E5%BC%8F%E7%9A%84%E5%B0%81%E9%97%AD%E5%BD%A2%E5%BC%8F"><span class="nav-number">4.2.</span> <span class="nav-text">利用线性空间求递推式的封闭形式</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B1%89%E8%AF%BA%E5%A1%94%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">汉诺塔问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E7%BA%BF%E5%88%86%E5%89%B2%E5%B9%B3%E9%9D%A2%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">直线分割平面问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A6%E7%91%9F%E5%A4%AB%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">约瑟夫问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#m-2-%E7%9A%84%E6%83%85%E5%BD%A2"><span class="nav-number">3.1.</span> <span class="nav-text">$m&#x3D;2$的情形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4%E6%B1%82%E9%80%92%E6%8E%A8%E5%BC%8F%E7%9A%84%E5%B0%81%E9%97%AD%E5%BD%A2%E5%BC%8F"><span class="nav-number">3.2.</span> <span class="nav-text">利用线性空间求递推式的封闭形式</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
