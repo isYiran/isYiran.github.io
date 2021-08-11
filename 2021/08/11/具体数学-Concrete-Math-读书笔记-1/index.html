@@ -27,14 +27,14 @@
 <meta property="og:site_name" content="Yiran&#39;s blog">
 <meta property="og:description" content="暑假看了一些书，因此随手记录一下所学所想。 先从具体数学开始吧，由于博主只是个大一的本科生，数学基础并不扎实，欢迎指正错误。 本篇主要涉及具体数学第一章的内容，以及我对其中一些内容的拓展。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/.com//Fig1.png">
+<meta property="og:image" content="http://example.com/2021/08/11/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6-Concrete-Math-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-1/Fig1.png">
 <meta property="article:published_time" content="2021-08-11T14:24:43.000Z">
 <meta property="article:modified_time" content="2021-08-11T15:12:50.715Z">
 <meta property="article:author" content="Yiran">
 <meta property="article:tag" content="具体数学">
 <meta property="article:tag" content="读书笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/.com//Fig1.png">
+<meta name="twitter:image" content="http://example.com/2021/08/11/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6-Concrete-Math-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-1/Fig1.png">
 
 <link rel="canonical" href="http://example.com/2021/08/11/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6-Concrete-Math-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-1/">
 
@@ -240,7 +240,7 @@
 <p>从而，平面上的点数$V=\frac{n(n-1)}{2}+2n=\frac{n^2+3n}{2}$​​。原先的每条直线被$n+1$个点分割为$n$条边，则边数$E=n*n+2n=n^2+2n$。</p>
 <p>又由凸多边形外也是一个区域，代入平面图欧拉公式得$V-E+L_n+1=2$，即$L_n=\frac{n(n+1)}{2}$。</p>
 <p>下图是$n=3$​时的一个例子，其中绿色的点和红色的边分别为新形成的点和新形成的边。</p>
-<p><img src="/.com//Fig1.png" alt="Figure 1" style="zoom:67%;"></p>
+<p><img src="/2021/08/11/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6-Concrete-Math-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-1/Fig1.png" alt="Figure 1" style="zoom:67%;"></p>
 <h2 id="约瑟夫问题"><a href="#约瑟夫问题" class="headerlink" title="约瑟夫问题"></a>约瑟夫问题</h2><p>这个问题引申出来的内容就多一些了，并且我用线性空间对递推式的封闭形式进行了讨论。先规定$n$​​为人数，数到第$m$​​个人被选中，$J(n)$​为幸存者的编号，$\%$为取模运算。</p>
 <h3 id="m-2-的情形"><a href="#m-2-的情形" class="headerlink" title="$m=2$的情形"></a>$m=2$的情形</h3><p>书中先讨论的是$m=2$的情形，求解的方法是先选到只剩下$\left\lfloor \frac{n}{2}\right\rfloor$个人，将问题转换成$\left\lfloor \frac{n}{2}\right\rfloor$个人的情形。</p>
 <p>由此受到启发，可以抽象出一些求递归式的问题的解法：<strong>先对问题进行有限步的处理，构造一个到$n$​更小的情形的单射，从而得到递归式。</strong></p>
