@@ -28,7 +28,7 @@
 <meta property="og:description" content="初学数学分析，很多概念理解的并不深刻，这份笔记只是初学阶段的一点整理。本篇为一些在数学分析中涉及的基本理论，包括集合论的基本概念与ZFC公理、数理逻辑基础，目的是为后续内容做好铺垫。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-08-14T09:33:00.000Z">
-<meta property="article:modified_time" content="2021-08-14T13:37:17.876Z">
+<meta property="article:modified_time" content="2021-08-14T14:12:42.112Z">
 <meta property="article:author" content="Yiran">
 <meta property="article:tag" content="具体数学">
 <meta property="article:tag" content="读书笔记">
@@ -191,7 +191,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-08-14 17:33:00 / 修改时间：21:37:17" itemprop="dateCreated datePublished" datetime="2021-08-14T17:33:00+08:00">2021-08-14</time>
+              <time title="创建时间：2021-08-14 17:33:00 / 修改时间：22:12:42" itemprop="dateCreated datePublished" datetime="2021-08-14T17:33:00+08:00">2021-08-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -251,9 +251,8 @@
 <h1 id="二、集合论"><a href="#二、集合论" class="headerlink" title="二、集合论"></a>二、集合论</h1><p>下文不对公理和公理模式做区分。</p>
 <h2 id="S2-1-朴素集合论"><a href="#S2-1-朴素集合论" class="headerlink" title="$\S2.1$ 朴素集合论"></a>$\S2.1$ 朴素集合论</h2><p><strong>Definition 2.1.1(非正式)</strong> 一个集合是一些确定的对象无序的放在一起的整体，同时朴素集合论中的空集、子集和集合运算等概念就不再赘述了。</p>
 <p>同时，为了更好的描述无限集合，朴素集合论承认概括公理：</p>
-<p><strong>Axiom 2.1.1(概括公理)(危险)</strong> 假设$\forall x$，存在关于$x$的性质$P(x)$，则存在一个集合$\{x|P(x)$为真$\}$，使得$\forall y$，</p>
-<script type="math/tex; mode=display">
-y\in\{x|p(x)\text{为真}\}\iff P(y)\text{为真}</script><p>概括公理实则是在断言每个性质都对应一个集合，由此我们可以简单地将满足某些性质的元素都归到一个集合中。</p>
+<p><strong>Axiom 2.1.1(概括公理)(危险)</strong> 假设$\forall x$，存在关于$x$的性质$P(x)$，则存在一个集合$\{x|P(x)$为真$\}$，使得$\forall y$，$y\in\{x|p(x)$为真$\}\iff P(y)$为真。</p>
+<p>概括公理实则是在断言每个性质都对应一个集合，由此我们可以简单地将满足某些性质的元素都归到一个集合中。</p>
 <p>很可惜，朴素集合论遇上了麻烦。在这之前，我想先插入一些题外话。个人认为，“反例”在学习分析时，特别对初学者而言，是加深理解的一个利器。典型的例如Weierstrass函数，对分析学产生了重要的影响。而Russell即是构造了一个在概括公理下的“反例”，冲击了概括公理。</p>
 <p><strong>Russell悖论</strong> 令$P(x)\iff$​​”$x$​​是一个集合，并且$x\notin x$​​”，定义$A:=\{x|P(x)$​为真$\}$​​。假如$A\notin A$​​​，则$P(A)$​为真，从而$A\in A$​；假如$A\in A$​，则$P(A)$​为假，从而$A\notin A$。因此，无论哪种情况，都有$A\in A$和$A\notin A$​​​。</p>
 <p>这个悖论还有一个通俗版本叫理发师悖论。产生这个悖论的原因在于概括公理允许过大的集合存在，因此需要引入一系列公理限制集合的构造（题外话：个人认为第三次数学危机并没有完全消除）。下面介绍<strong>ZFC公理集合论</strong>。（再插句题外话：为什么朴素集合论没有那么多的公理呢？因为在假定概括公理为真的情况下，可以轻松推出下文许多公理，很可惜，这么美好的事情是不现实的。）</p>
@@ -318,7 +317,7 @@ y\in\{x|p(x)\text{为真}\}\iff P(y)\text{为真}</script><p>概括公理实则�
 <p><strong>Axiom 2.2.9(选择公理)</strong> $\forall A(\emptyset\notin A\to\exists C\forall B(B\in A\to\exists !x(x\in B\cap C)))$​​​</p>
 <p>上述所有公理构成了ZFC集合论系统。</p>
 <h1 id="三、函数"><a href="#三、函数" class="headerlink" title="三、函数"></a>三、函数</h1><p>为了定义函数，需要先引入Cartesian积。</p>
-<h2 id="S1-Cartesian积"><a href="#S1-Cartesian积" class="headerlink" title="$\S1$ Cartesian积"></a>$\S1$ Cartesian积</h2><p><strong>Definition 3.1.1</strong>  对任意的对象$x,y$，称$(x,y):=\{\{x\},\{x,y\}\}$为有序对。</p>
+<h2 id="S3-1-​-Cartesian积"><a href="#S3-1-​-Cartesian积" class="headerlink" title="$\S3.1$​ Cartesian积"></a>$\S3.1$​ Cartesian积</h2><p><strong>Definition 3.1.1</strong>  对任意的对象$x,y$，称$(x,y):=\{\{x\},\{x,y\}\}$为有序对。</p>
 <p>由配对公理，有序对的存在性已经明确了。不用在意这里有序对为什么定义的这么反常，这只是一个“脚手架”。</p>
 <p><strong>Definition 3.1.2</strong> 对集合$X,Y$，$X\times Y:=\{(x,y)|x\in X\wedge y\in Y\}$称为$X,Y$的Cartesian积。</p>
 <p>注意，我们还不能确定这是一个集合。</p>
@@ -329,13 +328,13 @@ y\in\{x|p(x)\text{为真}\}\iff P(y)\text{为真}</script><p>概括公理实则�
 </li>
 </ul>
 <p>由归纳法易得，$n$​元Cartesian积也是集合。</p>
-<h2 id="S2-​​-函数-映射"><a href="#S2-​​-函数-映射" class="headerlink" title="$\S2$​​ 函数(映射)"></a>$\S2$​​ 函数(映射)</h2><p><strong>Definition 3.2.1</strong> 设$X,Y$​​​​​为集合，称集合$R$​​​为从$X$​​到$Y$​​​的二元关系，当且仅当$R\subseteq X\times Y$​​​​。$\{x|(x,y)\in R\}$​称为$R$​的定义域。以$X$​为定义域到$Y$​的满足$(x,y)\in f\wedge(x,z)\in f\to y=z$​的二元关系$f$​称为函数，记作$f:X\to Y$。$f(x)=y\iff(x,y)\in f$。其中$Y$称为$f$的陪域，$\Im f:=\{y\in Y|\exists x\in X(y=f(x))\}$称为$f$​​的值域。</p>
+<h2 id="S3-2-​​​-函数-映射"><a href="#S3-2-​​​-函数-映射" class="headerlink" title="$\S3.2$​​​ 函数(映射)"></a>$\S3.2$​​​ 函数(映射)</h2><p><strong>Definition 3.2.1</strong> 设$X,Y$​​​​​为集合，称集合$R$​​​为从$X$​​到$Y$​​​的二元关系，当且仅当$R\subseteq X\times Y$​​​​。$\{x|(x,y)\in R\}$​称为$R$​的定义域。以$X$​为定义域到$Y$​的满足$(x,y)\in f\wedge(x,z)\in f\to y=z$​的二元关系$f$​称为函数，记作$f:X\to Y$。$f(x)=y\iff(x,y)\in f$。其中$Y$称为$f$的陪域，$\Im f:=\{y\in Y|\exists x\in X(y=f(x))\}$称为$f$​​的值域。</p>
 <p><strong>Definition 3.2.2</strong> 两个具有相同定义域的函数$f:X\to Y,g:x\to Y$​​​相等，当且仅当$\forall x\in X,f(x)=g(x)$​​​，记作$f=g$​​​​。</p>
 <p><strong>Definition 3.2.3</strong> 令$f:X\to Y,g:Y\to Z$​，则定义$g,f$​的复合$g\circ f:X\to Z$​为一个函数，满足$(g\circ f)(x)=g(f(x))$​。</p>
 <p><strong>Definition 3.2.4</strong> 对函数$f:X\to Y$​，若满足$f(x)=f(x’)\Rightarrow x=x’$​则称$f$​是单射；若满足$\Im f=Y$​则称$f$​​是满射；若$f$​既是单射又是满射则称$f$​是双射。</p>
 <p><strong>Definition 3.2.5</strong> 若函数$f:X\to Y$​​是双射，则$\forall y\in Y$​​，恰好存在一个$x$​​使得$f(x)=y$​​，记作$x=f^{-1}(y)$​​，则$f^{-1}$​​是一个从$Y$​​到$X$​​的函数，称为$f$​​​​的逆。</p>
 <p><strong>Definition 3.2.6</strong> 设函数$f:X\to Y$​​​​，若$S$​​​​是$X$​​​​的一个子集，则$f(S):=\{f(x)|x\in S\}$​​​​称为$S$​​​​在$f$​​​​下的象；若$T$​​​是$Y$​​​的一个子集，则$f^{-1}(T):=\{x\in X|f(x)\in T\}$​​​称为$T$​​​​的逆象。</p>
-<h2 id="S3-集合的基数"><a href="#S3-集合的基数" class="headerlink" title="$\S3$ 集合的基数"></a>$\S3$ 集合的基数</h2><p>目前还没有定义自然数，但暂且引用下这个概念来引入集合的基数。</p>
+<h2 id="S3-3-​-集合的基数"><a href="#S3-3-​-集合的基数" class="headerlink" title="$\S3.3$​ 集合的基数"></a>$\S3.3$​ 集合的基数</h2><p>目前还没有定义自然数，但暂且引用下这个概念来引入集合的基数。</p>
 <p><strong>Definition 3.2.7</strong> 称集合$X,Y$等势，当且仅当存在从$X$到$Y$的一个双射。</p>
 <p><strong>※</strong> 易证等势是一个等价关系。</p>
 <p><strong>Definition 3.2.8</strong> 称集合$X$​​的基数为$n$​​，当且仅当$X$​​与集合$\{i\in\mathbb{N}|1\leq i\leq n\}$​​等势。这与$X$​​中有$n$​​​个元素等价。若集合的基数是某个自然数，则称该集合为有限集，记为$|X|=n$​​，否则称之为无限集。</p>
@@ -437,7 +436,7 @@ y\in\{x|p(x)\text{为真}\}\iff P(y)\text{为真}</script><p>概括公理实则�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">一、数理逻辑基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#S1-1-%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91"><span class="nav-number">1.1.</span> <span class="nav-text">$\S1.1$ 命题逻辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S1-2-%E5%8F%98%E9%87%8F%E4%B8%8E%E9%87%8F%E8%AF%8D"><span class="nav-number">1.2.</span> <span class="nav-text">$\S1.2$ 变量与量词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S1-3-%E7%9B%B8%E7%AD%89"><span class="nav-number">1.3.</span> <span class="nav-text">$\S1.3$ 相等</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%9B%86%E5%90%88%E8%AE%BA"><span class="nav-number">2.</span> <span class="nav-text">二、集合论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#S2-1-%E6%9C%B4%E7%B4%A0%E9%9B%86%E5%90%88%E8%AE%BA"><span class="nav-number">2.1.</span> <span class="nav-text">$\S2.1$ 朴素集合论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S2-2-ZFC%E9%9B%86%E5%90%88%E8%AE%BA"><span class="nav-number">2.2.</span> <span class="nav-text">$\S2.2$ ZFC集合论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">三、函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#S1-Cartesian%E7%A7%AF"><span class="nav-number">3.1.</span> <span class="nav-text">$\S1$ Cartesian积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S2-%E2%80%8B%E2%80%8B-%E5%87%BD%E6%95%B0-%E6%98%A0%E5%B0%84"><span class="nav-number">3.2.</span> <span class="nav-text">$\S2$​​ 函数(映射)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S3-%E9%9B%86%E5%90%88%E7%9A%84%E5%9F%BA%E6%95%B0"><span class="nav-number">3.3.</span> <span class="nav-text">$\S3$ 集合的基数</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">一、数理逻辑基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#S1-1-%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91"><span class="nav-number">1.1.</span> <span class="nav-text">$\S1.1$ 命题逻辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S1-2-%E5%8F%98%E9%87%8F%E4%B8%8E%E9%87%8F%E8%AF%8D"><span class="nav-number">1.2.</span> <span class="nav-text">$\S1.2$ 变量与量词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S1-3-%E7%9B%B8%E7%AD%89"><span class="nav-number">1.3.</span> <span class="nav-text">$\S1.3$ 相等</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%9B%86%E5%90%88%E8%AE%BA"><span class="nav-number">2.</span> <span class="nav-text">二、集合论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#S2-1-%E6%9C%B4%E7%B4%A0%E9%9B%86%E5%90%88%E8%AE%BA"><span class="nav-number">2.1.</span> <span class="nav-text">$\S2.1$ 朴素集合论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S2-2-ZFC%E9%9B%86%E5%90%88%E8%AE%BA"><span class="nav-number">2.2.</span> <span class="nav-text">$\S2.2$ ZFC集合论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">三、函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#S3-1-%E2%80%8B-Cartesian%E7%A7%AF"><span class="nav-number">3.1.</span> <span class="nav-text">$\S3.1$​ Cartesian积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S3-2-%E2%80%8B%E2%80%8B%E2%80%8B-%E5%87%BD%E6%95%B0-%E6%98%A0%E5%B0%84"><span class="nav-number">3.2.</span> <span class="nav-text">$\S3.2$​​​ 函数(映射)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S3-3-%E2%80%8B-%E9%9B%86%E5%90%88%E7%9A%84%E5%9F%BA%E6%95%B0"><span class="nav-number">3.3.</span> <span class="nav-text">$\S3.3$​ 集合的基数</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
