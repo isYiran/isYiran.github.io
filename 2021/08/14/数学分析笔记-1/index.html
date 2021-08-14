@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="初学数学分析，很多概念理解的并不深刻，这份笔记只是初学阶段的一点整理。本篇为一些在数学分析中涉及的基本理论，包括集合论的基本概念与ZFC公理、数理逻辑基础，目的是为后续内容做好铺垫。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学分析笔记(1)">
+<meta property="og:url" content="http://example.com/2021/08/14/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0-1/index.html">
+<meta property="og:site_name" content="Yiran&#39;s blog">
+<meta property="og:description" content="初学数学分析，很多概念理解的并不深刻，这份笔记只是初学阶段的一点整理。本篇为一些在数学分析中涉及的基本理论，包括集合论的基本概念与ZFC公理、数理逻辑基础，目的是为后续内容做好铺垫。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-14T09:33:00.000Z">
+<meta property="article:modified_time" content="2021-08-14T13:37:17.876Z">
+<meta property="article:author" content="Yiran">
+<meta property="article:tag" content="具体数学">
+<meta property="article:tag" content="读书笔记">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/08/14/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>数学分析笔记(1) | Yiran's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yiran's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/14/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/math.jpg">
+      <meta itemprop="name" content="Yiran">
+      <meta itemprop="description" content="记录杂想">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yiran's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数学分析笔记(1)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-08-14 17:33:00 / 修改时间：21:37:17" itemprop="dateCreated datePublished" datetime="2021-08-14T17:33:00+08:00">2021-08-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">具体数学笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>初学数学分析，很多概念理解的并不深刻，这份笔记只是初学阶段的一点整理。本篇为一些在数学分析中涉及的基本理论，包括集合论的基本概念与ZFC公理、数理逻辑基础，目的是为后续内容做好铺垫。</p>
+<span id="more"></span>
+<h1 id="一、数理逻辑基础"><a href="#一、数理逻辑基础" class="headerlink" title="一、数理逻辑基础"></a>一、数理逻辑基础</h1><p>这一块内容是为了整个笔记的完整性，以重述概念为主。</p>
+<h2 id="S1-1-命题逻辑"><a href="#S1-1-命题逻辑" class="headerlink" title="$\S1.1$ 命题逻辑"></a>$\S1.1$ 命题逻辑</h2><p><strong>Definition 1.1.1</strong> 命题是一个非真即假的陈述句。</p>
+<p>通过逻辑连接符$\neg,\vee,\wedge,\to,\leftrightarrow$​​​，可以利用较简单的命题来构造复合命题，即</p>
+<p><strong>Definition 1.1.2</strong> 命题公式按如下规则生成：</p>
+<ol>
+<li>命题变元是命题公式；</li>
+<li>若$P$是命题公式，则$\neg P$是命题公式；</li>
+<li>若$P,Q$​​是命题公式，则$P\wedge Q,P\vee Q,P\to Q,P\leftrightarrow Q$​​是命题公式；</li>
+<li>当且仅当有限次应用1-3条规则得到的包含命题变元，逻辑联结词和圆括号的有意义的符号串是命题公式。</li>
+</ol>
+<p>一个非常简单的递归定义，看上去还是非常清晰的。</p>
+<p><strong>Definition 1.1.3</strong> 若$A\to B$是一个永真式，则称其为永真蕴含式，记作$A\Rightarrow B$。</p>
+<p>特殊地，若命题$A$​蕴涵着某个假命题，则$A$​为假，这即是反证法的思想：为了证明$A$为假，先假设$A$是真，再证明$A$蕴涵着某个一定为假的命题。</p>
+<h2 id="S1-2-变量与量词"><a href="#S1-2-变量与量词" class="headerlink" title="$\S1.2$ 变量与量词"></a>$\S1.2$ 变量与量词</h2><p><strong>Definition 1.2.1</strong> 变量是表示某种特定类型的数学对象的符号，称未被指定为某个具体对象的变量为自由变量，否则称之为约束变量。</p>
+<p><strong>Definition 1.2.2</strong> 设$P(x)$是一个关于自由变量$x$​的命题。全称量词$\forall$读作“对任意的”，即”$\forall x\in X:P(x)$​为真“与</p>
+<p>“$P(x)$对所有的$x\in X$均为真”等价。类似地，存在量词$\exists$​读作“存在”。</p>
+<p>多个量词可以嵌套在一起，否定一个命题会使得该命题中的全称量词变为存在量词，存在量词变为全程量词。</p>
+<h2 id="S1-3-相等"><a href="#S1-3-相等" class="headerlink" title="$\S1.3$ 相等"></a>$\S1.3$ 相等</h2><p>相等遵守以下四条相等公理：</p>
+<p><strong>Axiom 1.3.1(自反公理)</strong> 给定任意的对象$x$​，有$x=x$​。</p>
+<p><strong>Axiom 1.3.2(对称公理)</strong> 给定任意两个同类型的对象$x,y$​ ,若$x=y$​，则$y=x$​。</p>
+<p><strong>Axiom 1.3.3(传递公理)</strong> 给定任意三个同类型的对象$x,y,z$​​，若$x=y$​​且$y=z$​，则$x=z$​。</p>
+<p><strong>Axiom 1.3.4(替换公理)</strong> 给定任意两个同类型的对象$x,y$​​，若$x=y$​​，则对任意一个函数或运算$f$​​，有$f(x)=f(y)$​​，对任意一个关于$x$​​的性质$P(x)$​​，$P(x)$​​和$P(y)$​是等价的命题。</p>
+<p>前三条公理非常显然，用下文提到的一个概念来描述即是，这三条公理断言了相等是一个等价关系。</p>
+<p>而替换公理则说明了这些符号只是一个泛指的变量，例如在模3的意义下，$1$等于$4$，对于函数$f(x)=x+2$，就有$1+2$等于$4+2$。</p>
+<p>数理逻辑暂且就只介绍这些粗浅的概念了，接下来引入一些集合论的概念。</p>
+<h1 id="二、集合论"><a href="#二、集合论" class="headerlink" title="二、集合论"></a>二、集合论</h1><p>下文不对公理和公理模式做区分。</p>
+<h2 id="S2-1-朴素集合论"><a href="#S2-1-朴素集合论" class="headerlink" title="$\S2.1$ 朴素集合论"></a>$\S2.1$ 朴素集合论</h2><p><strong>Definition 2.1.1(非正式)</strong> 一个集合是一些确定的对象无序的放在一起的整体，同时朴素集合论中的空集、子集和集合运算等概念就不再赘述了。</p>
+<p>同时，为了更好的描述无限集合，朴素集合论承认概括公理：</p>
+<p><strong>Axiom 2.1.1(概括公理)(危险)</strong> 假设$\forall x$，存在关于$x$的性质$P(x)$，则存在一个集合$\{x|P(x)$为真$\}$，使得$\forall y$，</p>
+<script type="math/tex; mode=display">
+y\in\{x|p(x)\text{为真}\}\iff P(y)\text{为真}</script><p>概括公理实则是在断言每个性质都对应一个集合，由此我们可以简单地将满足某些性质的元素都归到一个集合中。</p>
+<p>很可惜，朴素集合论遇上了麻烦。在这之前，我想先插入一些题外话。个人认为，“反例”在学习分析时，特别对初学者而言，是加深理解的一个利器。典型的例如Weierstrass函数，对分析学产生了重要的影响。而Russell即是构造了一个在概括公理下的“反例”，冲击了概括公理。</p>
+<p><strong>Russell悖论</strong> 令$P(x)\iff$​​”$x$​​是一个集合，并且$x\notin x$​​”，定义$A:=\{x|P(x)$​为真$\}$​​。假如$A\notin A$​​​，则$P(A)$​为真，从而$A\in A$​；假如$A\in A$​，则$P(A)$​为假，从而$A\notin A$。因此，无论哪种情况，都有$A\in A$和$A\notin A$​​​。</p>
+<p>这个悖论还有一个通俗版本叫理发师悖论。产生这个悖论的原因在于概括公理允许过大的集合存在，因此需要引入一系列公理限制集合的构造（题外话：个人认为第三次数学危机并没有完全消除）。下面介绍<strong>ZFC公理集合论</strong>。（再插句题外话：为什么朴素集合论没有那么多的公理呢？因为在假定概括公理为真的情况下，可以轻松推出下文许多公理，很可惜，这么美好的事情是不现实的。）</p>
+<h2 id="S2-2-ZFC集合论"><a href="#S2-2-ZFC集合论" class="headerlink" title="$\S2.2$ ZFC集合论"></a>$\S2.2$ ZFC集合论</h2><p>先从定义集合的相等开始：</p>
+<p><strong>Axiom 2.2.1(外延公理)</strong> $\forall x(x\in A\leftrightarrow x\in B)\leftrightarrow A=B$​</p>
+<p>即称两个集合$A,B$是相等的，当且仅当$A$与$B$中的元素相同。</p>
+<p><strong>※</strong> 这个公理说明集合内的元素是集合唯一的性质。</p>
+<p><strong>Axiom 2.2.2(分类公理)</strong> $\forall A\exists B\forall x(x\in B\leftrightarrow x\in A\wedge P(x))$​​​</p>
+<p>即设A是一个集合，$P(x)$​​是$A$​​中元素的一个性质，则存在集合$\{x\in A|P(x)\}$​为所有$A$中具有性质$P$的元素。</p>
+<p>分类公理即对概括公理的弱化，假如集合真的存在（注意，目前我们还不能断定真的存在集合），我们已经能构造出空集了。</p>
+<p> <strong>Proposition 2.2.1</strong> 若存在一个集合，则唯一存在没有任何元素的集合。</p>
+<ul>
+<li>$Proof$​​ 假设存在一个集合$A$​，令$P(x)$​为$x\neq x$​​，则由分类公理即可得存在性，再有外延公理可得唯一性。$\Box$</li>
+</ul>
+<p>外延公理已经定义了集合的相等，回想下$\S1.3$​中关于相等的替换公理，我们来验证下替换公理适用于分类。</p>
+<ul>
+<li><p>$Proof$ 假设替换公理不适应，即存在$A=A’$，有$\{x\in A|P(x)\}\neq\{x\in A’|P(x)\}$​。记两个集合分别为$B,B’$，不妨设$B$中存在元素$x$，有$x\notin B’$。</p>
+<p>由$x\in B$​可知$x\in A$​。又由外延公理，$x\in A’$​。假设$P(x)$​为真，则$x\in B’$​，否则$x\notin B’ $​​，均与上述矛盾，从而替换公理适用于分类。$\Box$</p>
+</li>
+</ul>
+<p>现在集合还很匮乏，为了构造更多可用的集合，配对“公理”被引入了。</p>
+<p><strong>Axiom 2.2.3(配对”公理”)</strong> $\forall A\forall B\exists C\forall x(x\in C\leftrightarrow x=a\vee x=b)$</p>
+<p>即对对象$A,B$​，存在集合$C=\{A,B\}$​​。</p>
+<p><strong>Axiom 2.2.4(并集公理)</strong> $\forall A\exists B\forall x(x\in B\leftrightarrow\exists y(x\in y\wedge y\in A))$​</p>
+<p>即对$A$，存在一个集合$B$，$A$中元素的元素都在$B$中且$B$中元素都在$A$的元素中，并引入记号$B=\bigcup A$。</p>
+<p>集合的交也可被类似定义。</p>
+<p>虽然现在还没有定义函数，但可以暂用一下以前的知识。为了考察定义域为$X$，值域为$Y$的所有函数，我们需要考虑$X$的所有子集和$Y$的所有子集，因此引入了幂集公理。</p>
+<p><strong>Axiom 2.2.5(幂集公理)</strong> $\forall A\exists B\forall x(x\in B\leftrightarrow x\subseteq A)$</p>
+<p>即对集合$A$，存在集合$B$，其元素是$A$的所有子集。</p>
+<p>注意，上述所有的定理都是在假设有集合存在的情况下，目前我们还不能保证确实存在有集合。先引入一个定义：</p>
+<p><strong>Definition 2.2.1</strong> 对任意集合$A$，$A^+:= A\cup\{A\}$称为$A$的后继集。</p>
+<p>接下来引入无穷公理来说明集合存在，在最开始的$ZF$公理体系中，这条定理是从空集开始，而本文用的是一种变动后的无穷公理。</p>
+<p><strong>Axiom 2.2.6(无穷公理)</strong> $\exists A(\exists x(x\in A)\wedge\forall x(x\in A\to x^+\in A))$​</p>
+<p>即集合是存在的，且存在归纳集，包括某个存在的集合和任何其中的集合的后继集。</p>
+<p><strong>※</strong> 无穷公理先认为必有集合存在，再说明无穷集存在。</p>
+<p>这时已经确保了有集合存在，因此空集也被确定了，记其为$\emptyset$，把这个结论称为空集定理。</p>
+<p><strong>Theorem 2.2.1(空集定理)</strong> $\exists \emptyset\forall x(x\notin\emptyset)$​</p>
+<p>对于一个集合，可以进行的一个最基本的操作是取出集合中的每一个元素，按某种方式将每个元素都转换成一个新 对象，并最好能将新的对象都放在一个集合里。为此，引入替代公理。</p>
+<p><strong>Axiom 2.2.7(替代公理)</strong> </p>
+<p>$\forall A(\forall x\in A( \forall y_1\forall y_2(P(x,y_1)\wedge P(x,y_2)\to y_1=y_2)))\to\exists B\forall y(y\in B\leftrightarrow\exists x(x\in A\wedge P(x,y)))$​​​</p>
+<p>将替代公理用自然语言表达不会这么繁琐：</p>
+<p>设$A$是一个集合，对任意$x\in A$和任意一个对象$y$，假设存在一个关于$x,y$的命题 $P(x,y)$使得对任意$x\in A$，至多有一个$y$使得$P(x,y)$为真，则存在一个集合$\{y|P(x,y)$对某个$x\in A$为真$\}$​。</p>
+<p>事实上，若我们将“存在唯一的没有任何元素的集合”当作一条公理，则我们可以证明替代公理蕴含分类公理。</p>
+<p><strong>Theorem 2.2.2</strong> 若承认空集公理，则空集公理和替代公理蕴含分类公理。</p>
+<ul>
+<li><p>$Proof$ 设$A$是一个集合，$P(x)$是$A$​中元素的一个性质。</p>
+<p>$1)$​ 若$A$​中存在一个元素使得$P(x)$为真，任意取定一个$A$中使得$P(x)$为真的元素$x_0$，$x,y$都是$A$中元素，令$\phi(x,y)$定义如下：若$P(x)$为假，则只有$y=x_0$时$\phi(x,y)$​为真；若$P(x)$为真，则只有$y=x$时$\phi(x,y)$为真。</p>
+<p>显然$\phi$满足替代公理中的条件，而替代公理对两个相等的集合也成立，因此存在集合$\{y|\phi(x,y)$对某个$x\in A$为真$\}=\{x\in A|P(x)$为真$\}$。</p>
+<p>我看见很多证明由此就说明了替代公理蕴含分类公理，但事实上从我$1)$中证明的第一句话的表述就能看出，这没有考虑空集的情况。</p>
+<p>$2)$ 若$A$中不存在元素使得$P(x)$​为真，则由空集公理，$\emptyset$​即是符合条件的集合。 $\Box$</p>
+</li>
+</ul>
+<p>另外前文谈及配对“公理”时我对公理二字一直加了引号，因为由替代公理可以轻易推出它。</p>
+<p><strong>Theorem 2.2.3</strong> 替代公理可以推出配对公理。</p>
+<ul>
+<li>$Proof$ 对任意对象$A,B$，由上述定理，$\emptyset,\emptyset\cup\{\emptyset\}$是两个集合，不妨记为$0,1$。取$C=\{0,1\}$，定义$P(x,y)$是$C$的一个命题，只有$P(0,A),P(1,B)$为真。则对$C$使用替代公理，即可得存在集合$D=\{A,B\}$。$\Box$</li>
+</ul>
+<p><strong>Axiom 2.2.8(正则公理)</strong> $\forall A(A\neq\emptyset\to\exists(x\in A\wedge\neg\exists y(y\in x\wedge y\in A)))$​</p>
+<p>即若$A$是一个非空集合，则$A$中至少存在一个元素$x$满足$x$不是集合或$x$与$A$不相交。</p>
+<p>这个公理主要是使得集合成为良基集合，对分析研究的作用不大，不多做讨论。</p>
+<p>上述的公理构成了ZF集合论系统，而ZFC中的C指得是选择公理。</p>
+<p><strong>Axiom 2.2.9(选择公理)</strong> $\forall A(\emptyset\notin A\to\exists C\forall B(B\in A\to\exists !x(x\in B\cap C)))$​​​</p>
+<p>上述所有公理构成了ZFC集合论系统。</p>
+<h1 id="三、函数"><a href="#三、函数" class="headerlink" title="三、函数"></a>三、函数</h1><p>为了定义函数，需要先引入Cartesian积。</p>
+<h2 id="S1-Cartesian积"><a href="#S1-Cartesian积" class="headerlink" title="$\S1$ Cartesian积"></a>$\S1$ Cartesian积</h2><p><strong>Definition 3.1.1</strong>  对任意的对象$x,y$，称$(x,y):=\{\{x\},\{x,y\}\}$为有序对。</p>
+<p>由配对公理，有序对的存在性已经明确了。不用在意这里有序对为什么定义的这么反常，这只是一个“脚手架”。</p>
+<p><strong>Definition 3.1.2</strong> 对集合$X,Y$，$X\times Y:=\{(x,y)|x\in X\wedge y\in Y\}$称为$X,Y$的Cartesian积。</p>
+<p>注意，我们还不能确定这是一个集合。</p>
+<p><strong>Theorem 3.1.1</strong> Cartesian积是一个集合。</p>
+<ul>
+<li><p>$Proof$​​ 任取$x_0\in X$​​，对任意$y\in Y$​和有序对，令命题$P(y,(x_0,y’))$为真当且仅当$y=y’$，显然$P$满足替代公理的条件，从而有集合$A_{x_0}=\{(x_0,y)|y\in Y\}$。由并集公理，$B=\bigcup_{x\in X}A_x$是一个集合。</p>
+<p>易验证$B=X\times Y$。 $\Box$​</p>
+</li>
+</ul>
+<p>由归纳法易得，$n$​元Cartesian积也是集合。</p>
+<h2 id="S2-​​-函数-映射"><a href="#S2-​​-函数-映射" class="headerlink" title="$\S2$​​ 函数(映射)"></a>$\S2$​​ 函数(映射)</h2><p><strong>Definition 3.2.1</strong> 设$X,Y$​​​​​为集合，称集合$R$​​​为从$X$​​到$Y$​​​的二元关系，当且仅当$R\subseteq X\times Y$​​​​。$\{x|(x,y)\in R\}$​称为$R$​的定义域。以$X$​为定义域到$Y$​的满足$(x,y)\in f\wedge(x,z)\in f\to y=z$​的二元关系$f$​称为函数，记作$f:X\to Y$。$f(x)=y\iff(x,y)\in f$。其中$Y$称为$f$的陪域，$\Im f:=\{y\in Y|\exists x\in X(y=f(x))\}$称为$f$​​的值域。</p>
+<p><strong>Definition 3.2.2</strong> 两个具有相同定义域的函数$f:X\to Y,g:x\to Y$​​​相等，当且仅当$\forall x\in X,f(x)=g(x)$​​​，记作$f=g$​​​​。</p>
+<p><strong>Definition 3.2.3</strong> 令$f:X\to Y,g:Y\to Z$​，则定义$g,f$​的复合$g\circ f:X\to Z$​为一个函数，满足$(g\circ f)(x)=g(f(x))$​。</p>
+<p><strong>Definition 3.2.4</strong> 对函数$f:X\to Y$​，若满足$f(x)=f(x’)\Rightarrow x=x’$​则称$f$​是单射；若满足$\Im f=Y$​则称$f$​​是满射；若$f$​既是单射又是满射则称$f$​是双射。</p>
+<p><strong>Definition 3.2.5</strong> 若函数$f:X\to Y$​​是双射，则$\forall y\in Y$​​，恰好存在一个$x$​​使得$f(x)=y$​​，记作$x=f^{-1}(y)$​​，则$f^{-1}$​​是一个从$Y$​​到$X$​​的函数，称为$f$​​​​的逆。</p>
+<p><strong>Definition 3.2.6</strong> 设函数$f:X\to Y$​​​​，若$S$​​​​是$X$​​​​的一个子集，则$f(S):=\{f(x)|x\in S\}$​​​​称为$S$​​​​在$f$​​​​下的象；若$T$​​​是$Y$​​​的一个子集，则$f^{-1}(T):=\{x\in X|f(x)\in T\}$​​​称为$T$​​​​的逆象。</p>
+<h2 id="S3-集合的基数"><a href="#S3-集合的基数" class="headerlink" title="$\S3$ 集合的基数"></a>$\S3$ 集合的基数</h2><p>目前还没有定义自然数，但暂且引用下这个概念来引入集合的基数。</p>
+<p><strong>Definition 3.2.7</strong> 称集合$X,Y$等势，当且仅当存在从$X$到$Y$的一个双射。</p>
+<p><strong>※</strong> 易证等势是一个等价关系。</p>
+<p><strong>Definition 3.2.8</strong> 称集合$X$​​的基数为$n$​​，当且仅当$X$​​与集合$\{i\in\mathbb{N}|1\leq i\leq n\}$​​等势。这与$X$​​中有$n$​​​个元素等价。若集合的基数是某个自然数，则称该集合为有限集，记为$|X|=n$​​，否则称之为无限集。</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Yiran
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2021/08/14/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0-1/" title="数学分析笔记(1)">http://example.com/2021/08/14/数学分析笔记-1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6/" rel="tag"># 具体数学</a>
+              <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag"># 读书笔记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/08/11/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6-Concrete-Math-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-1/" rel="prev" title="具体数学(Concrete-Math)读书笔记(1)">
+      <i class="fa fa-chevron-left"></i> 具体数学(Concrete-Math)读书笔记(1)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">一、数理逻辑基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#S1-1-%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91"><span class="nav-number">1.1.</span> <span class="nav-text">$\S1.1$ 命题逻辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S1-2-%E5%8F%98%E9%87%8F%E4%B8%8E%E9%87%8F%E8%AF%8D"><span class="nav-number">1.2.</span> <span class="nav-text">$\S1.2$ 变量与量词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S1-3-%E7%9B%B8%E7%AD%89"><span class="nav-number">1.3.</span> <span class="nav-text">$\S1.3$ 相等</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%9B%86%E5%90%88%E8%AE%BA"><span class="nav-number">2.</span> <span class="nav-text">二、集合论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#S2-1-%E6%9C%B4%E7%B4%A0%E9%9B%86%E5%90%88%E8%AE%BA"><span class="nav-number">2.1.</span> <span class="nav-text">$\S2.1$ 朴素集合论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S2-2-ZFC%E9%9B%86%E5%90%88%E8%AE%BA"><span class="nav-number">2.2.</span> <span class="nav-text">$\S2.2$ ZFC集合论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">三、函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#S1-Cartesian%E7%A7%AF"><span class="nav-number">3.1.</span> <span class="nav-text">$\S1$ Cartesian积</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S2-%E2%80%8B%E2%80%8B-%E5%87%BD%E6%95%B0-%E6%98%A0%E5%B0%84"><span class="nav-number">3.2.</span> <span class="nav-text">$\S2$​​ 函数(映射)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S3-%E9%9B%86%E5%90%88%E7%9A%84%E5%9F%BA%E6%95%B0"><span class="nav-number">3.3.</span> <span class="nav-text">$\S3$ 集合的基数</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yiran"
+      src="/images/math.jpg">
+  <p class="site-author-name" itemprop="name">Yiran</p>
+  <div class="site-description" itemprop="description">记录杂想</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; Mon Aug 09 2021 08:00:00 GMT+0800 (中国标准时间) – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yiran</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
